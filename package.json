@@ -1,47 +1,56 @@
 {
-  "name": "vite-vue3-ts-pinia",
-  "private": true,
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview",
-    "eslint:comment": "使用 ESLint 检查并自动修复 src 目录下所有扩展名为 .js 和 .vue 的文件",
-    "eslint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
-    "prettier": "prettier --write",
-    "commit:comment": "引导设置规范化的提交信息",
-    "commit": "git-cz"
-  },
-  "config": {
-      "commitizen": {
-        "path": "node_modules/cz-customizable"
-      }
-  },
-  "dependencies": {
-    "@vueuse/core": "^8.2.0",
-    "axios": "^1.7.9",
-    "pinia": "^2.0.12",
-    "vue": "^3.2.25",
-    "vue-router": "^4.0.14"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^19.6.1",
-    "@commitlint/config-conventional": "^19.6.0",
-    "@types/node": "^22.10.2",
-    "@typescript-eslint/eslint-plugin": "^8.18.1",
-    "@typescript-eslint/parser": "^8.18.1",
-    "@vitejs/plugin-vue": "^2.2.0",
-    "commitizen": "^4.3.1",
-    "commitlint-config-cz": "^0.13.3",
-    "cz-conventional-changelog": "^3.3.0",
-    "cz-customizable": "^7.3.0",
-    "eslint": "^9.17.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-vue": "^9.32.0",
-    "prettier": "^3.4.2",
-    "typescript": "^4.5.4",
-    "vite": "^2.8.0",
-    "vue-tsc": "^0.29.8"
-  }
+    "name": "vite-vue3-ts-pinia",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "vue-tsc --noEmit && vite build",
+        "preview": "vite preview",
+        "eslint:comment": "使用 ESLint 检查并自动修复 src 目录下所有扩展名为 .js 和 .vue 的文件",
+        "eslint": "eslint -c .eslintrc.js",
+        "prettier": "prettier --write",
+        "commit:comment": "引导设置规范化的提交信息",
+        "commit": "git-cz"
+    },
+    "config": {
+        "commitizen": {
+            "path": "node_modules/cz-customizable"
+        }
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "husky .husky/commit-msg"
+        }
+    },
+    "dependencies": {
+        "@vueuse/core": "^8.2.0",
+        "axios": "^1.7.9",
+        "pinia": "^2.0.12",
+        "vue": "^3.2.25",
+        "vue-router": "^4.0.14"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^19.6.1",
+        "@commitlint/config-conventional": "^19.6.0",
+        "@types/node": "^22.10.2",
+        "@typescript-eslint/eslint-plugin": "^8.18.1",
+        "@typescript-eslint/parser": "^8.18.1",
+        "@vitejs/plugin-vue": "^2.2.0",
+        "commitizen": "^4.3.1",
+        "commitlint": "^19.6.1",
+        "commitlint-config-cz": "^0.13.3",
+        "commitlint-config-gitmoji": "^2.3.1",
+        "cz-conventional-changelog": "^3.3.0",
+        "cz-customizable": "^7.3.0",
+        "eslint": "^9.17.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "eslint-plugin-vue": "^9.32.0",
+        "husky": "^7.0.4",
+        "lint-staged": "^15.2.11",
+        "prettier": "^3.4.2",
+        "typescript": "^4.5.4",
+        "vite": "^2.8.0",
+        "vue-tsc": "^0.29.8"
+    }
 }

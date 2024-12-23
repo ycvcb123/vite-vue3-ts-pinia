@@ -19,5 +19,7 @@ module.exports = {
 
     rules: {
         // override/add rules settings here, such as:
-    }
+    },
+    ignorePatterns: ['.gitignore'],
+    fix: true
 };

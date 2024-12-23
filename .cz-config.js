@@ -17,6 +17,19 @@ module.exports = {
         { value: 'revert', name: 'revert:   回退' },
         { value: 'build', name: 'build:    打包' }
     ],
+    scopes: [
+        { value: 'components', name: '组件' },
+        { value: 'views', name: '试图' },
+        { value: 'store', name: '状态管理' },
+        { value: 'router', name: '路由' },
+        { value: 'services', name: '服务层' },
+        { value: 'styles', name: '样式' },
+        { value: 'utils', name: '工具' },
+        { value: 'assets', name: '静态资源' },
+        { value: 'config', name: '配置' },
+        { value: 'tests', name: '测试' },
+        { value: 'custom', name: '自定义' },
+    ],
     // override the messages, defaults are as follows
     messages: {
         type: '请选择提交类型:',
