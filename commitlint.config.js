@@ -1,5 +1,6 @@
 module.exports = {
     extends: ['@commitlint/config-conventional', 'cz'],
+    plugins: ['commitlint-plugin-function-rules'],
     rules: {
         'type-enum': [
             2,
@@ -42,24 +43,98 @@ module.exports = {
         // <type> 格式 小写
         'type-case': [2, 'always', 'lower-case'],
         // <type> 不能为空
-        'type-empty': [
+        'function-rules/type-empty': [
             2,
             'never',
-            '提交格式为 <type>(<scope>): <subject>，请git cz!!!',
+            (parsed) => {
+                // Allow longer headers for commits with "deps" scope.
+                if (parsed.type === '') {
+                    return [
+                        false,
+                        '提交格式为 <type>(<scope>): <subject>，请git cz!!!',
+                    ];
+                } else if (
+                    ![
+                        'feature',
+                        'bug',
+                        'fix',
+                        'ui',
+                        'docs',
+                        'style',
+                        'perf',
+                        'release',
+                        'deploy',
+                        'refactor',
+                        'test',
+                        'chore',
+                        'revert',
+                        'merge',
+                        'build',
+                    ].includes(parsed.type)
+                ) {
+                    return [
+                        false,
+                        `type不存在${parsed.type}这个枚举值，请git cz!!! 按规范操作!!!`,
+                    ];
+                }
+                return [true];
+            },
         ],
         // <scope> 范围不能为空
-        'scope-empty': [
+        'function-rules/scope-empty': [
             2,
             'never',
-            '提交格式为 <type>(<scope>): <subject>，请git cz!!!',
+            (parsed) => {
+                // Allow longer headers for commits with "deps" scope.
+                if (parsed.type === '') {
+                    return [
+                        false,
+                        '提交格式为 <type>(<scope>): <subject>，请git cz!!!',
+                    ];
+                } else if (
+                    ![
+                        'components',
+                        'views',
+                        'store',
+                        'router',
+                        'services',
+                        'styles',
+                        'utils',
+                        'assets',
+                        'config',
+                        'tests',
+                        'custom',
+                    ].includes(parsed.scope)
+                ) {
+                    return [
+                        false,
+                        `scope不存在${parsed.scope}这个枚举值，请git cz!!! 按规范操作!!!`,
+                    ];
+                }
+                return [true];
+            },
         ],
         // <scope> 范围格式
         'scope-case': [0],
         // <subject> 主要 message 不能为空
-        'subject-empty': [
+        'function-rules/subject-empty': [
             2,
             'never',
-            '提交格式为 <type>(<scope>): <subject>，请git cz!!!',
+            (parsed) => {
+                // Allow longer headers for commits with "deps" scope.
+                if (parsed.subject === '') {
+                    return [
+                        false,
+                        '提交格式为 <type>(<scope>): <subject>，请git cz!!!',
+                    ];
+                } else if (!/.+? --story=.+/.test(parsed.subject)) {
+                    return [
+                        false,
+                        'commit 信息里需要关联storyId，如: 这是一个新特性 --story=123456',
+                    ];
+                }
+                return [true];
+            },
         ],
         // <subject> 以什么为结束标志，禁用
         'subject-full-stop': [0, 'never'],

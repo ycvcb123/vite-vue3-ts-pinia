@@ -8,6 +8,7 @@ import { defineComponent } from 'vue';
 import { useMouse } from '@vueuse/core';
 
 export default defineComponent({
+    // git add test
     name: 'VueUse',
     setup() {
         const { x, y } = useMouse();
