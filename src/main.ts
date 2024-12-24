@@ -3,6 +3,8 @@ import App from './App.vue';
 import store from './store';
 import router from './router';
 
+const a = '1111';
+
 // 创建vue实例
 const app = createApp(App);
 // 挂载pinia

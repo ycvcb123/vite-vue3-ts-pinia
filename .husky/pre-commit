@@ -1,5 +1,5 @@
-# #!/bin/sh
-# . "$(dirname "$0")/_/husky.sh"
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
 
-# # --no-install: 这个选项告诉 npx 不要在本地安装包，而是直接使用已经安装的包。
-# npx --no-install lint-staged
+# --no-install: 这个选项告诉 npx 不要在本地安装包，而是直接使用已经安装的包。
+npx --no-install lint-staged
