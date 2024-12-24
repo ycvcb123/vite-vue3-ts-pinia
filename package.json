@@ -22,6 +22,12 @@
             "commit-msg": "husky .husky/commit-msg"
         }
     },
+    "lint-staged": {
+        "*.{js,ts,vue}": [
+            "pnpm run eslint",
+            "pnpm run prettier"
+        ]
+    },
     "dependencies": {
         "@vueuse/core": "^8.2.0",
         "axios": "^1.7.9",
